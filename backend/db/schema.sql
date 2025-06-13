@@ -54,8 +54,7 @@ CREATE TABLE rent_payments(
 );
 
 CREATE TABLE utility_information(
-    id SERIAL PRIMARY KEY
-    user_id INTEGER REFERENCES users(id) NOT NULL ,
+    user_id INTEGER REFERENCES users(id) NOT NULL PRIMARY KEY,
     water_cost DECIMAL(10, 2),
     water_usage DECIMAL,
     electric_usage DECIMAL,
@@ -64,7 +63,6 @@ CREATE TABLE utility_information(
     gas_usage DECIMAL,
     due_date DATE,
     paid_date TIMESTAMP,
-    paid BOOLEAN NOT NULL DEFAULT false,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
