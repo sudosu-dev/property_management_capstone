@@ -9,6 +9,7 @@ import rentChargesRouter from "#api/rent_charges";
 import utilitiesRouter from "#api/utility_information";
 import announcementsRouter from "#api/announcements";
 import maintenanceRouter from "#api/maintenance";
+import stripePaymentRouter from "#api/stripe_payments";
 
 import getUserFromToken from "#middleware/getUserFromToken";
 import limiter from "#middleware/rateLimiter";
@@ -28,6 +29,7 @@ app.use("/rent_charges", rentChargesRouter);
 app.use("/utilities", utilitiesRouter);
 app.use("/announcements", announcementsRouter);
 app.use("/maintenance", maintenanceRouter);
+app.use("/stripe_payments", stripePaymentRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Property Management Capstone!");
