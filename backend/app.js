@@ -17,6 +17,9 @@ import limiter from "#middleware/rateLimiter";
 import cors from "cors";
 
 app.use(cors());
+
+app.use("/stripe_payments", stripePaymentRouter);
+
 app.use(express.json());
 app.use(limiter);
 app.use(getUserFromToken);
@@ -29,7 +32,6 @@ app.use("/rent_charges", rentChargesRouter);
 app.use("/utilities", utilitiesRouter);
 app.use("/announcements", announcementsRouter);
 app.use("/maintenance", maintenanceRouter);
-app.use("/stripe_payments", stripePaymentRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Property Management Capstone!");
